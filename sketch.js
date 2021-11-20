@@ -1,0 +1,1 @@
+//Get the current pixel size of the board and divide by number of squares for new size
