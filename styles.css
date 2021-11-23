@@ -91,8 +91,17 @@ button:hover {
   height: 650px;
   border: 1px solid #383838;
   box-shadow: 3px 2px 7px #4b4b4b;
-  display: flex;
-  padding: 0px 0px 5px;
+  display: inline-grid;
+}
+
+.row {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
+}
+
+.gridSquare {
+  background-color: white;
 }
 
 footer {
