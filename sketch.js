@@ -1,5 +1,6 @@
 //Create constants to simplify code for future use
 const container = document.querySelector('#board');
+let squares = document.querySelectorAll('.gridSquare');
 
 function createGrid(numberOfItems) {
   for (let i = 0; i < numberOfItems; i++) {
@@ -13,17 +14,9 @@ function createGrid(numberOfItems) {
     container.appendChild(row);
   };
 
-  let squares = document.querySelectorAll('.gridSquare');
-
-  squares.forEach((square) => {
-  square.addEventListener('mouseover', function(e) {
-    e.target.style.background = 'black';
-  });
-  });
+  colorSquares(false);
 
 };
-
-createGrid(16);
 
 function clearBoard() {
 
@@ -62,12 +55,30 @@ function newSize() {
     container.appendChild(row);
   };
 
-  let squares = document.querySelectorAll('.gridSquare');
+  colorSquares(false);
 
-  squares.forEach((square) => {
-  square.addEventListener('mouseover', function(e) {
-    e.target.style.background = 'black';
-  });
-  });
+};
 
+createGrid(16);
+
+function colorSquares(notColored) {
+
+  squares = document.querySelectorAll('.gridSquare');
+
+  if (notColored == false) {
+    squares.forEach((square) => {
+      square.addEventListener('mouseover', function(e) {
+        e.target.style.background = 'black';
+      });
+    });
+  } else {
+    squares.forEach((square) => {
+      square.addEventListener('mouseover', function(e) {
+        let r1 = Math.floor(Math.random() * 256);
+        let r2 = Math.floor(Math.random() * 256);
+        let r3 = Math.floor(Math.random() * 256);
+        e.target.style.background = 'rgb(' + r1 + ' ' + r2 + ' ' + r3 + ')';
+      });
+    });
+  };
 };
